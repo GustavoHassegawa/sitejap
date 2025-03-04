@@ -6,7 +6,25 @@ function addClickEventToFlashcards() {
     });
 }
 
-const url1 = 'https://kanjiapi.dev/v1/kanji/grade-1';
+let grade;
+
+const page = document.title;
+
+if (page == 'First grade kanjis') {
+    grade = 'grade-1';
+} else if (page == 'Second grade kanjis') {
+    grade = 'grade-2';
+} else if (page == 'Third grade kanjis') {
+    grade = 'grade-3';
+} else if (page == 'Fourth grade kanjis') {
+    grade = 'grade-4';
+} else if (page == 'Fifth grade kanjis') {
+    grade = 'grade-5';
+} else if (page == 'Sixth grade kanjis') {
+    grade = 'grade-6';
+}
+
+const url1 = `https://kanjiapi.dev/v1/kanji/${grade}`;
 
 async function criarFlashcards(kanjis) {
     const container = document.querySelector('.flashcard-container');
